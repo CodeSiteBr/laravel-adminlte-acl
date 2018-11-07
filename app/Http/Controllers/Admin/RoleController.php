@@ -123,8 +123,8 @@ class RoleController extends Controller
     {
         $role = Role::findOrFail($id);
 
-        // Torna impossível excluir este papel específico
-        if ($role->name == "super-admin") {
+        // Torna impossível excluir este papel específico super-admin
+        if ($role->id == 1) {
             return redirect()->route('admin.roles.index')
             ->with(
                 'warning',
@@ -152,8 +152,8 @@ class RoleController extends Controller
             $roles = Role::whereIn('id', $request->input('ids'))->get();
 
             foreach ($roles as $role) {
-                // Torna impossível excluir este papel específico
-                if ($role->name != "super-admin") {
+                // Torna impossível excluir este papel específico super-admin
+                if ($role->id != 1) {
                     $role->delete();
                 }
             }

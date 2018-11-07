@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
         // Implicitamente concede à função "super-admin" todas as permissões
         // Isso funciona no aplicativo usando funções relacionadas ao gate como auth()->user()->can() e @can()
         Gate::before(function ($user, $ability) {
-            if ($user->hasRole('super-admin')) {
+            if ($user->hasRole(1)) {
                 return true;
             }
         });

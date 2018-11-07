@@ -61,11 +61,12 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('profile.edit') }}">
                                     <i class="fa fa-btn fa-user"></i> {{ __('Profile') }}
-                                </a> @role('super-admin') {{-- Laravel-permission blade helper
-                                --}}
-                                <a class="dropdown-item" href="{{ route('admin.users.index') }}">
-                                    <i class="fa fa-btn fa-unlock"></i> {{ __('Admin') }}
-                                </a> @endrole
+                                </a>
+                                @role(1)
+                                    <a class="dropdown-item" href="{{ route('admin.home') }}">
+                                        <i class="fa fa-btn fa-unlock"></i> {{ __('Admin') }}
+                                    </a>
+                                @endrole
 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="fa fa-btn fa-power-off"></i> {{ __('Logout') }}
