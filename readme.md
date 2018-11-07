@@ -9,7 +9,14 @@
 
 # Laravel
 
-Aplicação em Laravel v5.7 para iniciar um projeto com o laravel.
+Aplicação em Laravel v5.7 com modulo admin com controle de acl para iniciar um projeto com o laravel.
+
+## Extensões implementadas
+
+-   [Laravel permission 2.24](https://github.com/spatie/laravel-permission)
+-   [Laravel form builders 5.7](https://github.com/LaravelCollective/html)
+-   [AdminLTE 2.4](https://adminlte.io/)
+-   [Fontawesome 5.5](https://fontawesome.com/)
 
 ## Requisitos
 
@@ -23,17 +30,17 @@ Aplicação em Laravel v5.7 para iniciar um projeto com o laravel.
 1. Efetuar a instalação clonando ou baixando do repositorio.
 
     ```bash
-    git clone https://github.com/CodeSiteBr/laravel-acl.git
+    git clone https://github.com/CodeSiteBr/laravel-adminlte-acl.git
     ```
     ```bash
-    git clone git@github.com:CodeSiteBr/laravel-acl.git
+    git clone git@github.com:CodeSiteBr/laravel-adminlte-acl.git
     ```
 
-    Download [laravel-acl](https://github.com/CodeSiteBr/laravel-acl/archive/master.zip)
+    Download [laravel-adminlte-acl](https://github.com/CodeSiteBr/laravel-adminlte-acl/archive/master.zip)
 
 2. Entrar na pasta do projeto, execute:
     ```bash
-    cd laravel-acl
+    cd laravel-adminlte-acl
     ```
 3. Se composer está instalado, execute:
     ```bash
@@ -103,6 +110,12 @@ Aplicação em Laravel v5.7 para iniciar um projeto com o laravel.
     ```
 
 11. Se alterar os arquivos js ou sass da pasta resources/assets, é necessário, executar:
+
+    ```bash
+    npm run prod
+    ```
+
+    Ou
 
     ```bash
     npm run dev
