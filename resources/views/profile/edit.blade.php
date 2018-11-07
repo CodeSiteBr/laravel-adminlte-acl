@@ -17,17 +17,22 @@
                         {!! csrf_field() !!}
 
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name"><span class="text-danger">*</span> Name</label>
                             <input type="text" value="{{ auth()->user()->name }}" name="name" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email"><span class="text-danger">*</span> Email</label>
                             <input type="email" value="{{ auth()->user()->email }}" name="email" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label for="current_password">Current Password</label>
+                            <input type="password" name="current_password" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">New Password</label>
                             <input type="password" name="password" class="form-control">
                         </div>
 

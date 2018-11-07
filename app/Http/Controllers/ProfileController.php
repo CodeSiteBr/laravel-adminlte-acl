@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UpdateProfileformRequest;
 
 class ProfileController extends Controller
@@ -31,6 +32,22 @@ class ProfileController extends Controller
         // para não alterar a senha se estiver vazia
         if (is_null($data['password'])) {
             unset($data['password']);
+        } else {
+            // alterar a senha somente se informar a senha atual
+            if (! Hash::check($request->input('current_password'), $user->password)) {
+                return redirect()
+                    ->back()
+                    ->with('error', 'Nova senha não alterado, senha atual está incorreta.');
+            }
+        }
+
+        // alterar email somente se informar a senha atual
+        if ($request->input('email') != $user->email) {
+            if (! Hash::check($request->input('current_password'), $user->password)) {
+                return redirect()
+                    ->back()
+                    ->with('error', 'E-mail não alterado, senha atual incorreta.');
+            }
         }
 
         $data['image'] = $user->image;
@@ -60,11 +77,11 @@ class ProfileController extends Controller
         if ($update) {
             return redirect()
                     ->route('profile.edit')
-                    ->with('success', 'Sucesso ao atualizar!');
+                    ->with('success', 'Perfil atualizado com sucesso!');
         }
 
         return redirect()
                 ->back()
-                ->with('error', 'Falha ao atualizar o perfil...');
+                ->with('error', 'Falha ao atualizar o perfil.');
     }
 }
