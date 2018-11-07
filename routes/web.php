@@ -6,12 +6,10 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::resource('permissions', 'PermissionController');
 });
 
-Route::resource('posts', 'PostController');
+Route::get('meu-perfil', 'ProfileController@edit')->name('profile.edit');
+Route::post('atualizar-perfil', 'ProfileController@update')->name('profile.update');
 
-// Site
-Route::get('meu-perfil', 'ProfileController@edit')->name('profile.edit')->middleware('auth');
-Route::post('atualizar-perfil', 'ProfileController@update')->name('profile.update')->middleware('auth');
-
-Route::get('/', 'PostController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();

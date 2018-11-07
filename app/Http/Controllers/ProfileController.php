@@ -7,6 +7,16 @@ use App\Http\Requests\UpdateProfileformRequest;
 
 class ProfileController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function edit()
     {
         return view('profile.edit');
