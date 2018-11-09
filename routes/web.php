@@ -7,6 +7,8 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index');
+
+    Route::get('/dashboard', 'HomeController@dashboard');
 });
 
 Route::get('meu-perfil', 'ProfileController@edit')->name('profile.edit');
