@@ -1,37 +1,33 @@
-@extends('layouts.app')
+@extends('layouts.admin.app')
+
 @section('title', 'Admin :: Home')
+
 @section('content')
 
-<div class="container">
-    @include('includes.alerts')
+    <section class="content-header">
+        <h1>
+            Dashboard
+            <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
 
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h1>
-                        <i class='fa fa-cog'></i> Admin
-
-                        <a class="btn btn-sm btn-dark" href="{{ route('admin.users.index') }}" class="btn btn-default pull-right">
-                            @lang('user.users')
-                        </a>
-
-                        <a class="btn btn-sm btn-dark" href="{{ route('admin.roles.index') }}" class="btn btn-default pull-right">
-                            @lang('user.roles')
-                        </a>
-
-                        <a class="btn btn-sm btn-dark" href="{{ route('admin.permissions.index') }}" class="btn btn-default pull-right">
-                            @lang('user.permissions')
-                        </a>
-                    </h1>
-                </div>
-
-                <div class="card-body">
-                    <h3>Bem-vindo </h3>
-                    <p>{{ Auth::user()->name }}</p>
-                </div>
+    <section class="content">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Bem-vindo</h3>
             </div>
+
+            <div class="box-body">
+                <p>{{ Auth::user()->name }}</p>
+            </div>
+
+            {{--  <div class="box-footer">
+                Footer
+            </div>  --}}
         </div>
-    </div>
-</div>
+    </section>
 @endsection
