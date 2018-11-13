@@ -8,14 +8,14 @@
     <div class="row">
 
         <h1>
-            <i class="fa fa-users"></i> @lang('user.user_management')
+            <i class="fa fa-users"></i> @lang('admin.user_management')
 
             <a class="btn btn-sm btn-dark" href="{{ route('admin.roles.index') }}" class="btn btn-default pull-right">
-                @lang('user.roles')
+                @lang('admin.roles')
             </a>
 
             <a class="btn btn-sm btn-dark" href="{{ route('admin.permissions.index') }}" class="btn btn-default pull-right">
-                @lang('user.permissions')
+                @lang('admin.permissions')
             </a>
         </h1>
 
@@ -25,11 +25,11 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>@lang('user.name')</th>
-                        <th>@lang('user.email')</th>
-                        <th>@lang('user.created_at')</th>
-                        <th>@lang('user.user_roles')</th>
-                        <th>@lang('user.operations')</th>
+                        <th>@lang('admin.name')</th>
+                        <th>@lang('admin.email')</th>
+                        <th>@lang('admin.created_at')</th>
+                        <th>@lang('admin.user_roles')</th>
+                        <th>@lang('admin.operations')</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,7 +44,7 @@
                         <td>
                             <div class="form-row">
                                 <div class="col-auto">
-                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-primary pull-left"><i class="fa fa-pen"></i> @lang('user.edit')</a>
+                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-primary pull-left"><i class="fa fa-pen"></i> @lang('admin.edit')</a>
                                 </div>
                                 <div class="col-auto">
                                     {!! Form::open([
@@ -66,7 +66,7 @@
             </table>
         </div>
 
-        <a href="{{ route('admin.users.create') }}" class="btn btn-success"><i class="fa fa-user-plus"></i> @lang('user.add_user')</a>
+        <a href="{{ route('admin.users.create') }}" class="btn btn-success"><i class="fa fa-user-plus"></i> @lang('admin.add_user')</a>
 
     </div>
 </div>

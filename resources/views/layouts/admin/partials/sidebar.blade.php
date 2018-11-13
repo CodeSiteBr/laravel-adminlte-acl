@@ -1,3 +1,5 @@
+@inject('request', 'Illuminate\Http\Request')
+
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -12,82 +14,142 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-        <!-- search form -->
+        <!-- search form
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                        </button>
-                    </span>
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
             </div>
         </form>
-        <!-- /.search form -->
+        -->
 
-        <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
+
+            <li class="header">@lang('admin.management')</li>
+
+            <li><a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> <span>Home</span></a></li>
+
+            @can('manage users')
+            <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
+                    <i class="fa fa-users"></i>
+                    <span class="title">{{ ucfirst(trans('admin.users')) }}</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
-
                 <ul class="treeview-menu">
-                    <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                    <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                    <li>
+                        <a href="{{ route('admin.permissions.index') }}">
+                            <i class="fa fa-list"></i>
+                            <span class="title">
+                                @lang('admin.list_users')
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.users.create') }}">
+                            <i class="fa fa-user-plus"></i>
+                            <span class="title">
+                                @lang('admin.add_user')
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </li>
+            @endcan
 
+            @can('manage roles')
             <li class="treeview">
                 <a href="#">
-                                <i class="fa fa-files-o"></i>
-                                <span>Layout Options</span>
-                                <span class="pull-right-container">
-                                    <span class="label label-primary pull-right">4</span>
-                                </span>
-                            </a>
+                    <i class="fa fa-wrench"></i>
+                    <span class="title">{{ ucfirst(trans('admin.roles')) }}</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                    <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                    <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                    <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                    <li>
+                        <a href="{{ route('admin.roles.index') }}">
+                            <i class="fa fa-list"></i>
+                            <span class="title">
+                                @lang('admin.list_roles')
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.roles.create') }}">
+                            <i class="fa fa-plus"></i>
+                            <span class="title">
+                                @lang('admin.add_role')
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </li>
-            <li>
-                <a href="pages/widgets.html">
-                                <i class="fa fa-th"></i> <span>Widgets</span>
-                                <span class="pull-right-container">
-                                    <small class="label pull-right bg-green">new</small>
-                                </span>
-                            </a>
-            </li>
+            @endcan
+
+            @can('manage permissions')
             <li class="treeview">
                 <a href="#">
-                                <i class="fa fa-pie-chart"></i>
-                                <span>Charts</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
+                    <i class="fa fa-briefcase"></i>
+                    <span class="title">{{ ucfirst(trans('admin.permissions')) }}</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-                    <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                    <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+                    <li>
+                        <a href="{{ route('admin.permissions.index') }}">
+                            <i class="fa fa-list"></i>
+                            <span class="title">
+                                @lang('admin.list_permissions')
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.permissions.create') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span class="title">
+                                @lang('admin.add_permission')
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </li>
+            @endcan
 
-
-            <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-
-            <li class="header">LABELS</li>
-            <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
         </ul>
     </section>
-    <!-- /.sidebar -->
 </aside>
+
+@section('js')
+    <script>
+        $(function () {
+            /*
+            // opcao 1
+            var url = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
+
+            $('.tree li').removeClass('active');
+            $('[href$="'+url+'"]').parent().addClass("active");
+            $('.treeview').removeClass('menu-open');
+            $('[href$="'+url+'"]').closest('li.treeview').addClass("menu-open");
+            */
+
+            // opcao 2
+            var url = window.location;
+            // Para o menu da barra lateral inteiramente mas não cobre o treeview
+            $('ul.sidebar-menu a').filter(function() {
+                return this.href == url;
+            }).parent().addClass('active');
+
+            // Para treeview
+            $('ul.treeview-menu a').filter(function() {
+                return this.href == url;
+            }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
+        });
+    </script>
+@endsection
