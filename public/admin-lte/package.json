@@ -1,32 +1,35 @@
 {
-  "_from": "admin-lte",
+  "_args": [
+    [
+      "admin-lte@2.4.8",
+      "/home/marcelo/Docker/laravel"
+    ]
+  ],
+  "_from": "admin-lte@2.4.8",
   "_id": "admin-lte@2.4.8",
   "_inBundle": false,
   "_integrity": "sha512-Gr/jb9bP2psiN20o+1mCSwnjIJZX59Od2BtBI1ew09QFarsvf8AEX/FbbCGcSBtqk6Qs1q5YcIf2N6mFWj3iKg==",
   "_location": "/admin-lte",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "admin-lte",
+    "raw": "admin-lte@2.4.8",
     "name": "admin-lte",
     "escapedName": "admin-lte",
-    "rawSpec": "",
+    "rawSpec": "2.4.8",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "2.4.8"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/admin-lte/-/admin-lte-2.4.8.tgz",
-  "_shasum": "35edb2b7857af7fcfed7355c83649d5abd09a501",
-  "_spec": "admin-lte",
+  "_spec": "2.4.8",
   "_where": "/home/marcelo/Docker/laravel",
   "bugs": {
     "url": "https://github.com/almasaeed2010/AdminLTE/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "bootstrap": "^3.3.7",
     "bootstrap-colorpicker": "^2.5.1",
@@ -57,7 +60,6 @@
     "select2": "^4.0.3",
     "slimscroll": "^0.9.1"
   },
-  "deprecated": false,
   "description": "Introduction ============",
   "devDependencies": {
     "R2": "^1.4.3",
