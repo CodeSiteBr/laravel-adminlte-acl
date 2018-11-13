@@ -39,7 +39,7 @@
                             <div class="col-auto">
                                 {!! Form::open([
                                     'method' => 'DELETE',
-                                    'onsubmit' => "return confirm('".trans("user.confirm")."');",
+                                    'onsubmit' => "return confirm('".trans("admin.confirm")."');",
                                     'route' => ['admin.roles.destroy', $role->id]
                                 ]) !!}
                                 {!! Form::button('<i class="fa fa-trash"></i> Delete', ['type'=>'submit', 'class' => 'btn btn-sm btn-danger']) !!}

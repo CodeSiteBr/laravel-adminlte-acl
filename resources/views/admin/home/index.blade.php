@@ -25,9 +25,10 @@
                 <p>{{ Auth::user()->name }}</p>
             </div>
 
-            {{--  <div class="box-footer">
+            <div class="box-footer">
                 Footer
-            </div>  --}}
+            </div>
         </div>
     </section>
+
 @endsection

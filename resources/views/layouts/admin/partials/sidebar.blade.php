@@ -43,10 +43,10 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="{{ route('admin.permissions.index') }}">
+                        <a href="{{ route('admin.users.index') }}">
                             <i class="fa fa-list"></i>
                             <span class="title">
-                                @lang('admin.list_users')
+                                @lang('admin.users.list')
                             </span>
                         </a>
                     </li>
@@ -54,7 +54,7 @@
                         <a href="{{ route('admin.users.create') }}">
                             <i class="fa fa-user-plus"></i>
                             <span class="title">
-                                @lang('admin.add_user')
+                                @lang('admin.users.create')
                             </span>
                         </a>
                     </li>
@@ -76,7 +76,7 @@
                         <a href="{{ route('admin.roles.index') }}">
                             <i class="fa fa-list"></i>
                             <span class="title">
-                                @lang('admin.list_roles')
+                                @lang('admin.roles.list')
                             </span>
                         </a>
                     </li>
@@ -84,7 +84,7 @@
                         <a href="{{ route('admin.roles.create') }}">
                             <i class="fa fa-plus"></i>
                             <span class="title">
-                                @lang('admin.add_role')
+                                @lang('admin.roles.create')
                             </span>
                         </a>
                     </li>
@@ -106,7 +106,7 @@
                         <a href="{{ route('admin.permissions.index') }}">
                             <i class="fa fa-list"></i>
                             <span class="title">
-                                @lang('admin.list_permissions')
+                                @lang('admin.permissions.list')
                             </span>
                         </a>
                     </li>
@@ -114,7 +114,7 @@
                         <a href="{{ route('admin.permissions.create') }}">
                             <i class="fa fa-briefcase"></i>
                             <span class="title">
-                                @lang('admin.add_permission')
+                                @lang('admin.permissions.create')
                             </span>
                         </a>
                     </li>
@@ -129,17 +129,6 @@
 @section('js')
     <script>
         $(function () {
-            /*
-            // opcao 1
-            var url = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
-
-            $('.tree li').removeClass('active');
-            $('[href$="'+url+'"]').parent().addClass("active");
-            $('.treeview').removeClass('menu-open');
-            $('[href$="'+url+'"]').closest('li.treeview').addClass("menu-open");
-            */
-
-            // opcao 2
             var url = window.location;
             // Para o menu da barra lateral inteiramente mas não cobre o treeview
             $('ul.sidebar-menu a').filter(function() {

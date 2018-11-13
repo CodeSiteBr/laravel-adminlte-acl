@@ -1,60 +1,71 @@
-@extends('layouts.app')
-@section('title', '| Add User')
+@extends('layouts.admin.app')
+
+@section('title', trans('admin.users.create'))
+
 @section('content')
 
-<div class="container">
-    @include('includes.alerts')
+@include('includes.alerts')
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h1><i class='fa fa-user-plus'></i> Add User</h1>
+<section class="content-header">
+    <h1>
+        Dashboard
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class='fa fa-user-plus'></i> @lang('admin.users.create')</h3>
+        </div>
+
+        {{ Form::open(['url' => route('admin.users.store')]) }}
+            <div class="box-body">
+                <div class="form-group">
+                    {{ Form::label('name', 'Name') }}
+                    {{ Form::text('name', '', ['class' => 'form-control']) }}
                 </div>
 
-                <div class="card-body">
-                    {{ Form::open(['url' => route('admin.users.store')]) }}
+                <div class="form-group">
+                    {{ Form::label('email', 'Email') }}
+                    {{ Form::email('email', '', ['class' => 'form-control']) }}
+                </div>
 
-                        <div class="form-group">
-                            {{ Form::label('name', 'Name') }}
-                            {{ Form::text('name', '', ['class' => 'form-control']) }}
-                        </div>
+                <div class='form-group'>
+                    @foreach ($roles as $role)
+                        {{ Form::checkbox('roles[]', $role->id ) }}
+                        {{ Form::label($role->name, ucfirst($role->name)) }} <br>
+                    @endforeach
+                </div>
 
-                        <div class="form-group">
-                            {{ Form::label('email', 'Email') }}
-                            {{ Form::email('email', '', ['class' => 'form-control']) }}
-                        </div>
+                <div class="form-group">
+                    {{ Form::label('password', 'Password') }}<br>
+                    {{ Form::password('password', ['class' => 'form-control']) }}
+                </div>
 
-                        <div class='form-group'>
-                            @foreach ($roles as $role)
-                                {{ Form::checkbox('roles[]', $role->id ) }}
-                                {{ Form::label($role->name, ucfirst($role->name)) }} <br>
-                            @endforeach
-                        </div>
-
-                        <div class="form-group">
-                            {{ Form::label('password', 'Password') }}<br>
-                            {{ Form::password('password', ['class' => 'form-control']) }}
-                        </div>
-
-                        <div class="form-group">
-                            {{ Form::label('password', 'Confirm Password') }}<br>
-                            {{ Form::password('password_confirmation', ['class' => 'form-control']) }}
-                        </div>
-
-                        {{ Form::button('<i class="fas fa-save"></i> Save', [
-                            'type' => 'submit',
-                            'class' => 'btn btn-success btn-lg btn-block'
-                        ]) }}
-
-                        <a href="{{ route('admin.users.index') }}" class="btn btn-lg btn-block btn-secondary">
-                            <i class="fas fa-undo"></i> Return
-                        </a>
-
-                    {{ Form::close() }}
+                <div class="form-group">
+                    {{ Form::label('password', 'Confirm Password') }}<br>
+                    {{ Form::password('password_confirmation', ['class' => 'form-control']) }}
                 </div>
             </div>
-        </div>
+
+            <div class="box-footer">
+                {{ Form::button(
+                    '<i class="fa fa-save"></i> ' . trans('admin.save'), [
+                    'type' => 'submit',
+                    'class' => 'btn btn-success'
+                ]) }}
+
+                <a href="{{ route('admin.users.index') }}" class="btn btn-default">
+                    <i class="fa fa-undo"></i> @lang('admin.return')
+                </a>
+            </div>
+        {{ Form::close() }}
     </div>
-</div>
+</section>
+
 @endsection
