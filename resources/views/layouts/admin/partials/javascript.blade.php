@@ -12,6 +12,3 @@
 
 <!-- AdminLTE App -->
 <script src="{{ asset('admin-lte/dist/js/adminlte.min.js?' . time()) }}"></script>
-
-<!-- AdminLTE para fins de demonstração -->
-<script src="{{ asset('admin-lte/dist/js/demo.js?' . time()) }}"></script>
