@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin.app')
 @section('title', '| Roles')
 @section('content')
 
@@ -56,4 +56,10 @@
 
     <a href="{{ route('admin.roles.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Add Role</a>
 </div>
+@endsection
+
+@section('js')
+    <script>
+        console.log('teste');
+    </script>
 @endsection

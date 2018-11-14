@@ -126,19 +126,19 @@
     </section>
 </aside>
 
-@section('js')
-    <script>
-        $(function () {
-            var url = window.location;
-            // Para o menu da barra lateral inteiramente mas não cobre o treeview
-            $('ul.sidebar-menu a').filter(function() {
-                return this.href == url;
-            }).parent().addClass('active');
+@prepend('js')
+<script>
+    $(function () {
+        var url = window.location;
+        // Para o menu da barra lateral inteiramente mas não cobre o treeview
+        $('ul.sidebar-menu a').filter(function() {
+            return this.href == url;
+        }).parent().addClass('active');
 
-            // Para treeview
-            $('ul.treeview-menu a').filter(function() {
-                return this.href == url;
-            }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
-        });
-    </script>
-@endsection
+        // Para treeview
+        $('ul.treeview-menu a').filter(function() {
+            return this.href == url;
+        }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
+    });
+</script>
+@endprepend

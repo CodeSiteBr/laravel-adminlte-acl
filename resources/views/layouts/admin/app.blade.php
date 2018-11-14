@@ -17,6 +17,9 @@
 
     @include('layouts.admin.partials.stylesheet')
 
+    @stack('css')
+    @yield('css')
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -25,11 +28,8 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-    @section('css')
-        @show
-
-    @section('js-head')
-        @show
+    @stack('js-head')
+    @yield('js-head')
 </head>
 
 <body class="
@@ -68,8 +68,8 @@
 
     @include('layouts.admin.partials.javascript')
 
-    @section('js')
-        @show
+    @stack('js')
+    @yield('js')
 </body>
 
 </html>

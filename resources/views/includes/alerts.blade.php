@@ -42,12 +42,12 @@
     </div>
 @endif
 
-@section('js')
-    <script>
-        $(".alert").click(function() {
-            $(this).slideUp();
-        });
+@push('js')
+<script>
+    $(".alert").click(function() {
+        $(this).slideUp();
+    });
 
-        $('.alert-success').delay(5000).slideUp();
-    </script>
-@endsection
+    $('.alert-success').delay(5000).slideUp();
+</script>
+@endpush
