@@ -46,7 +46,7 @@
                             <td>
                                 <div class="form-row">
                                     <div class="col-auto">
-                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-primary pull-left"><i class="fa fa-pen"></i> @lang('admin.edit')</a>
+                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-warning pull-left"><i class="fa fa-pencil"></i> @lang('admin.edit')</a>
                                     </div>
                                     <div class="col-auto">
                                         {!! Form::open([
@@ -55,7 +55,8 @@
                                             'route' => ['admin.users.destroy', $user->id]
                                         ]) !!}
 
-                                        {!! Form::button('<i class="fa fa-trash"></i> ' . trans("admin.delete"), ['type'=>'submit' ,'class' => 'btn btn-sm btn-danger']) !!}
+                                        {!! Form::button('<i class="fa fa-trash"></i> ' . trans("admin.delete"),
+                                            ['type'=>'submit' ,'class' => 'btn btn-sm btn-danger']) !!}
 
                                         {!! Form::close() !!}
                                     </div>

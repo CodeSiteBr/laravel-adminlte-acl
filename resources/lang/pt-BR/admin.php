@@ -7,6 +7,7 @@ return [
     'email' => 'E-mail',
     'created_at' => 'Criado em',
     'password' => 'Senha',
+    'password_confirmation' => 'Confirme a senha',
     'user_roles' => 'Funções do usuário',
 
     'operations' => 'Operações',
@@ -18,10 +19,10 @@ return [
 
     'user' => 'Usuário',
     'users' => 'Usuários',
-    'users.list' => 'Lista de usuários',
     'users.create' => 'Adicionar usuários',
     'users.edit' => 'Editar usuário',
     'users.delete' => 'Deletar usuário',
+    'users.list' => 'Lista de usuários',
 
     'role' => 'Função',
     'roles' => 'Funções',
@@ -32,8 +33,15 @@ return [
 
     'permission' => 'Permissão',
     'permissions' => 'Permissões',
-    'permissions.list' => 'Lista de permissões',
     'permissions.create' => 'Adicionar permissão',
     'permissions.edit' => 'Editar permissão',
     'permissions.delete' => 'Deletar permissão',
+    'permissions.list' => 'Lista de permissões',
+
+    'alert' => [
+        'info' => 'Informação',
+        'success' => 'Sucesso',
+        'warning' => 'Atenção',
+        'error' => 'Ops! Algo deu errado',
+    ],
 ];
