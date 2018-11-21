@@ -40,6 +40,8 @@ return [
     'permissions.assign' => 'Atribuir permissões',
     'permissions.assign.roles' => 'Atribuir permissão para funções',
 
+    'telescope' => 'Depurador',
+
     'alert' => [
         'info' => 'Informação',
         'success' => 'Sucesso',

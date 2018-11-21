@@ -40,6 +40,8 @@ return [
     'permissions.assign' => 'Assign permissions',
     'permissions.assign.roles' => 'Assign permission to roles',
 
+    'telescope' => 'Debugger',
+
     'alert' => [
         'info' => 'Information',
         'success' => 'Success',

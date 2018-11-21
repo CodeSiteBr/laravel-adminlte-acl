@@ -149,6 +149,15 @@ class PermissionController extends Controller
             );
         }
 
+        // Tornar impossível excluir esta permissão
+        if ($permission->name == "manage telescope") {
+            return redirect()->route('admin.permissions.index')
+            ->with(
+                'warning',
+                'Cannot delete this Permission!'
+            );
+        }
+
         $permission->delete();
 
         return redirect()->route('admin.permissions.index')

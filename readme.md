@@ -15,6 +15,7 @@ Aplicação em Laravel v5.7 com modulo admin com controle de acl para iniciar um
 
 -   [Laravel permission 2.24](https://github.com/spatie/laravel-permission)
 -   [Laravel form builders 5.7](https://github.com/LaravelCollective/html)
+-   [Laravel telescope 1.0](https://laravel.com/docs/5.7/telescope)
 -   [AdminLTE 2.4](https://adminlte.io/)
 -   [Fontawesome 5.5](https://fontawesome.com/)
 

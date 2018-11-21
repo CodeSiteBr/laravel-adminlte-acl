@@ -122,6 +122,10 @@
             </li>
             @endcan
 
+            @can('manage telescope')
+            <li><a href="{{ url('admin/telescope') }}"><i class="fa fa-bug"></i> <span>@lang('admin.telescope')</span></a></li>
+            @endcan
+
         </ul>
     </section>
 </aside>
