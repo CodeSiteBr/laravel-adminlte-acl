@@ -1,7 +1,5 @@
 @extends('layouts.admin.app')
-
 @section('title', trans('admin.users.list'))
-
 @section('content')
 
 @include('includes.alerts')
@@ -46,7 +44,9 @@
                             <td>
                                 <div class="form-row">
                                     <div class="col-auto">
-                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-warning pull-left"><i class="fa fa-pencil"></i> @lang('admin.edit')</a>
+                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-warning pull-left" style="margin-right: 3px;">
+                                            <i class="fa fa-pencil"></i> @lang('admin.edit')
+                                        </a>
                                     </div>
                                     <div class="col-auto">
                                         {!! Form::open([

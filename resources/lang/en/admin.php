@@ -37,6 +37,8 @@ return [
     'permissions.edit' => 'Edit permission',
     'permissions.delete' => 'Delete permission',
     'permissions.list' => 'Permissions list',
+    'permissions.assign' => 'Assign permissions',
+    'permissions.assign.roles' => 'Assign permission to roles',
 
     'alert' => [
         'info' => 'Information',

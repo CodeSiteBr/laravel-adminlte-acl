@@ -37,6 +37,8 @@ return [
     'permissions.edit' => 'Editar permissão',
     'permissions.delete' => 'Deletar permissão',
     'permissions.list' => 'Lista de permissões',
+    'permissions.assign' => 'Atribuir permissões',
+    'permissions.assign.roles' => 'Atribuir permissão para funções',
 
     'alert' => [
         'info' => 'Informação',

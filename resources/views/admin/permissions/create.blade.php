@@ -1,51 +1,58 @@
-@extends('layouts.app')
-@section('title', '| Create Permission')
+@extends('layouts.admin.app')
+@section('title', trans('admin.permissions.create'))
 @section('content')
 
-<div class="container">
-    @include('includes.alerts')
+@include('includes.alerts')
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h1><i class='fa fa-key'></i> Add Permission</h1>
-                </div>
+<section class="content-header">
+    <h1>
+        Dashboard
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
 
-                <div class="card-body">
-
-                    {{ Form::open(['url' => route('admin.permissions.store')]) }}
-
-                        <div class="form-group">
-                            {{ Form::label('name', 'Name') }}
-                            {{ Form::text('name', '', array('class' => 'form-control')) }}
-                        </div>
-                        <br>
-
-                        @if(!$roles->isEmpty())
-                            <h4>Assign Permission to Roles</h4>
-
-                            @foreach ($roles as $role)
-                                {{ Form::checkbox('roles[]', $role->id ) }}
-                                {{ Form::label($role->name, ucfirst($role->name)) }}
-                                <br>
-                            @endforeach
-                        @endif
-
-                        <br>
-                        {{ Form::button('<i class="fas fa-save"></i> Save', [
-                            'type' => 'submit',
-                            'class' => 'btn btn-success btn-lg btn-block']
-                        ) }}
-
-                        <a href="{{ route('admin.permissions.index') }}" class="btn btn-lg btn-block btn-secondary">
-                            <i class="fas fa-undo"></i> Return
-                        </a>
-
-                    {{ Form::close() }}
-                </div>
-            </div>
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class='fa fa-briefcase'></i> @lang('admin.permissions.create')</h3>
         </div>
+
+        {{ Form::open(['url' => route('admin.permissions.store')]) }}
+            <div class="box-body">
+                <div class="form-group">
+                    {{ Form::label('name', trans('admin.name')) }}
+                    {{ Form::text('name', '', array('class' => 'form-control')) }}
+                </div>
+
+                @if(!$roles->isEmpty())
+                    <h4>@lang('admin.permissions.assign.roles')</h4>
+
+                    @foreach ($roles as $role)
+                        {{ Form::checkbox('roles[]', $role->id ) }}
+                        {{ Form::label($role->name, ucfirst($role->name)) }}
+                        <br>
+                    @endforeach
+                @endif
+            </div>
+            <div class="box-footer">
+                {{ Form::button(
+                    '<i class="fa fa-save"></i> ' . trans('admin.save'), [
+                    'type' => 'submit',
+                    'class' => 'btn btn-success'
+                ]) }}
+
+                <a href="{{ route('admin.permissions.index') }}" class="btn btn-default">
+                    <i class="fa fa-undo"></i> @lang('admin.return')
+                </a>
+            </div>
+
+        {{ Form::close() }}
+
     </div>
-</div>
+</section>
+
 @endsection

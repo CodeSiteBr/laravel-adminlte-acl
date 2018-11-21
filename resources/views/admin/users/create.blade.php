@@ -1,7 +1,5 @@
 @extends('layouts.admin.app')
-
 @section('title', trans('admin.users.create'))
-
 @section('content')
 
 @include('includes.alerts')
@@ -26,12 +24,12 @@
         {{ Form::open(['url' => route('admin.users.store')]) }}
             <div class="box-body">
                 <div class="form-group">
-                    {{ Form::label('name', 'Name') }}
+                    {{ Form::label('name', trans('admin.name')) }}
                     {{ Form::text('name', '', ['class' => 'form-control']) }}
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('email', 'Email') }}
+                    {{ Form::label('email', trans('admin.email')) }}
                     {{ Form::email('email', '', ['class' => 'form-control']) }}
                 </div>
 
@@ -43,12 +41,12 @@
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('password', 'Password') }}<br>
+                    {{ Form::label('password', trans('admin.password')) }}<br>
                     {{ Form::password('password', ['class' => 'form-control']) }}
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('password', 'Confirm Password') }}<br>
+                    {{ Form::label('password', trans('admin.password_confirmation')) }}<br>
                     {{ Form::password('password_confirmation', ['class' => 'form-control']) }}
                 </div>
             </div>
@@ -65,6 +63,7 @@
                 </a>
             </div>
         {{ Form::close() }}
+
     </div>
 </section>
 
