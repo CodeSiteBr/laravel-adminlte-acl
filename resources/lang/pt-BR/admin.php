@@ -30,6 +30,7 @@ return [
     'roles.edit' => 'Editar função',
     'roles.delete' => 'Deletar função',
     'roles.list' => 'Lista de funções',
+    'roles.assign' => 'Atribuir funções',
 
     'permission' => 'Permissão',
     'permissions' => 'Permissões',

@@ -51,15 +51,20 @@ class RoleController extends Controller
         ]);
 
         $role = Role::create($request->except('permissions'));
+        if ($role) {
+            $permissions = $request->input('permissions') ? $request->input('permissions') : [];
+            $role->syncPermissions($permissions);
 
-        $permissions = $request->input('permissions') ? $request->input('permissions') : [];
-        $role->syncPermissions($permissions);
+            return redirect()->route('admin.roles.index')
+                ->with(
+                    'success',
+                    'Role '. $role->name. ' added!'
+                );
+        }
 
-        return redirect()->route('admin.roles.index')
-            ->with(
-                'success',
-                'Role'. $role->name.' added!'
-            );
+        return redirect()
+            ->back()
+            ->with('error', 'Role '. $role->name.' failured!');
     }
 
     /**
