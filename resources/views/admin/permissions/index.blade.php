@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title', trans('admin.roles.list'))
+@section('title', trans('admin.permissions.list'))
 @section('content')
 
 @include('includes.alerts')
@@ -19,8 +19,8 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">
-                <i class="fa fa-wrench"></i>
-                @lang('admin.roles.list')
+                <i class="fa fa-briefcase"></i>
+                @lang('admin.permissions.list')
             </h3>
         </div>
 

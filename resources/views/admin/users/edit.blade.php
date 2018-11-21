@@ -1,7 +1,5 @@
 @extends('layouts.admin.app')
-
 @section('title', trans('admin.users.edit'))
-
 @section('content')
 
 @include('includes.alerts')
@@ -25,7 +23,7 @@
             </h3>
         </div>
 
-        {{-- Form model para preencher automaticamente nossos campos com dados do usuário --}}
+        {{-- Form model para preencher automaticamente os campos com dados do usuário --}}
         {{ Form::model($user, array('route' => array('admin.users.update', $user->id), 'method' => 'PUT')) }}
             <div class="box-body">
 
@@ -70,6 +68,7 @@
                     </a>
             </div>
         {{ Form::close() }}
+
     </div>
 </section>
 

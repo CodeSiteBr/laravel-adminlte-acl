@@ -112,7 +112,7 @@
                     </li>
                     <li>
                         <a href="{{ route('admin.permissions.create') }}">
-                            <i class="fa fa-briefcase"></i>
+                            <i class="fa fa-plus"></i>
                             <span class="title">
                                 @lang('admin.permissions.create')
                             </span>
