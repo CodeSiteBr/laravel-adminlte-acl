@@ -15,8 +15,15 @@
                 </div>
 
                 <div class="card-body">
-                    <h3>Bem-vindo </h3>
-                    <p>{{ Auth::user()->name }}</p>
+                    <h4>Usuários para teste</h4>
+
+                    <p>ADMIN</p>
+                    <p>Usuario: admin@admin.com</p>
+                    <p>Senha: 123456</p>
+
+                    <p>USER</p>
+                    <p>Usuario: user@user.com</p>
+                    <p>Senha: 123456</p>
                 </div>
             </div>
         </div>
