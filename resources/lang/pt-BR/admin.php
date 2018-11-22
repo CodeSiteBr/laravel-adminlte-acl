@@ -8,7 +8,6 @@ return [
     'created_at' => 'Criado em',
     'password' => 'Senha',
     'password_confirmation' => 'Confirme a senha',
-    'user_roles' => 'Funções do usuário',
 
     'operations' => 'Operações',
     'save' => 'Salvar',
@@ -23,6 +22,8 @@ return [
     'users.edit' => 'Editar usuário',
     'users.delete' => 'Deletar usuário',
     'users.list' => 'Lista de usuários',
+    'user.roles.assign' => 'Funções atribuídas',
+    'user.permissions.assign' => 'Permissões atribuídas',
 
     'role' => 'Função',
     'roles' => 'Funções',
@@ -41,7 +42,7 @@ return [
     'permissions.assign' => 'Atribuir permissões',
     'permissions.assign.roles' => 'Atribuir permissão para funções',
 
-    'telescope' => 'Depurador',
+    'debugger' => 'Depurador',
 
     'alert' => [
         'info' => 'Informação',

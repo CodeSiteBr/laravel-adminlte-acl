@@ -28,7 +28,8 @@
                             <th>@lang('admin.name')</th>
                             <th>@lang('admin.email')</th>
                             <th>@lang('admin.created_at')</th>
-                            <th>@lang('admin.user_roles')</th>
+                            <th>@lang('admin.user.roles.assign')</th>
+                            <th>@lang('admin.user.permissions.assign')</th>
                             <th>@lang('admin.operations')</th>
                         </tr>
                     </thead>
@@ -38,28 +39,30 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->created_at->format('F d, Y h:ia') }}</td>
-                            <td>{{ $user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to
-                            a user and convert to string --}}
-
+                            {{-- Retrieve array of roles associated to a user and convert to string --}}
+                            <td>{{ $user->roles->pluck('name')->implode(', ') }}</td>
+                            <td>{{ $user->permissions->pluck('name')->implode(', ') }}</td>
                             <td>
-                                <div class="form-row">
-                                    <div class="col-auto">
-                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-warning pull-left" style="margin-right: 3px;">
-                                            <i class="fa fa-pencil"></i> @lang('admin.edit')
-                                        </a>
-                                    </div>
-                                    <div class="col-auto">
-                                        {!! Form::open([
-                                            'method' => 'DELETE',
-                                            'onsubmit' => "return confirm('".trans("admin.confirm")."');",
-                                            'route' => ['admin.users.destroy', $user->id]
-                                        ]) !!}
+                                <div class="btn-group">
+                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-warning">
+                                        <i class="fa fa-pencil"></i> @lang('admin.edit')
+                                    </a>
 
-                                        {!! Form::button('<i class="fa fa-trash"></i> ' . trans("admin.delete"),
-                                            ['type'=>'submit' ,'class' => 'btn btn-sm btn-danger']) !!}
+                                    <form id="delete-form-{{ $user->id }}" action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display: none;">
+                                        @csrf
+                                        @method("DELETE")
+                                    </form>
 
-                                        {!! Form::close() !!}
-                                    </div>
+                                    <a class="btn btn-sm btn-danger"
+                                    onclick="
+                                    if(confirm('{{ trans('admin.confirm') }}')){
+                                        event.preventDefault();
+                                        document.getElementById('delete-form-{{ $user->id }}').submit();
+                                    } else {
+                                        event.preventDefault();
+                                    }">
+                                        <i class="fa fa-trash"></i> @lang("admin.delete")
+                                    </a>
                                 </div>
                             </td>
                         </tr>

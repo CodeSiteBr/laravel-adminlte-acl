@@ -33,12 +33,27 @@
                     {{ Form::email('email', '', ['class' => 'form-control']) }}
                 </div>
 
-                <div class='form-group'>
-                    @foreach ($roles as $role)
-                        {{ Form::checkbox('roles[]', $role->id ) }}
-                        {{ Form::label($role->name, ucfirst($role->name)) }} <br>
-                    @endforeach
-                </div>
+                @if(!$roles->isEmpty())
+                    <div class='form-group'>
+                        <h5><b>@lang('admin.roles.assign')</b></h5>
+
+                        @foreach ($roles as $role)
+                            {{ Form::checkbox('roles[]', $role->id ) }}
+                            {{ Form::label($role->name, ucfirst($role->name)) }} <br>
+                        @endforeach
+                    </div>
+                @endif
+
+                @if(!$permissions->isEmpty())
+                    <div class='form-group'>
+                        <h5><b>@lang('admin.permissions.assign')</b></h5>
+
+                        @foreach ($permissions as $permission)
+                            {{ Form::checkbox('permissions[]', $permission->id ) }}
+                            {{ Form::label($permission->name, ucfirst($permission->name)) }}<br>
+                        @endforeach
+                    </div>
+                @endif
 
                 <div class="form-group">
                     {{ Form::label('password', trans('admin.password')) }}<br>

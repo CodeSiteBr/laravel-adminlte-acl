@@ -12,6 +12,8 @@ use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
+    private $totalPage = 10;
+
     public function __construct()
     {
         $this->middleware(['permission:manage users']);
@@ -20,13 +22,18 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        // $users = User::paginate();
+        // $users = User::paginate($this->totalPage);
+
         return view('admin.users.index', compact('users'));
     }
 
     public function create()
     {
         $roles = Role::get();
-        return view('admin.users.create', compact('roles'));
+        $permissions = Permission::all();
+
+        return view('admin.users.create', compact('roles', 'permissions'));
     }
 
     public function store(Request $request)
@@ -37,25 +44,25 @@ class UserController extends Controller
             'password'=>'required|min:6|confirmed'
         ]);
 
-        $user = User::create($request->except('roles'));
-
+        $user = User::create($request->except(['roles', 'permissions']));
         if ($user) {
-            $roles = $request->input('roles');
-            if (isset($roles)) {
-                $user->assignRole($roles);
-            }
+            $roles = $request->input('roles') ? $request->input('roles') : [];
+            $user->syncRoles($roles);
+
+            $permissions = $request->input('permissions') ? $request->input('permissions') : [];
+            $user->syncPermissions($permissions);
 
             return redirect()
                     ->route('admin.users.index')
                     ->with(
                         'success',
-                        'User successfully added.'
+                        'User ' . $user->name . ' added.'
                     );
         }
 
         return redirect()
-                ->back()
-                ->with('error', 'Falha ao criar Usuário');
+            ->back()
+            ->with('error', 'User '. $user->name.' failured!');
     }
 
     public function show($id)
@@ -67,8 +74,9 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $roles = Role::get();
+        $permissions = Permission::all();
 
-        return view('admin.users.edit', compact('user', 'roles'));
+        return view('admin.users.edit', compact('user', 'roles', 'permissions'));
     }
 
     public function update(Request $request, $id)
@@ -85,11 +93,14 @@ class UserController extends Controller
         }
 
         $user = User::findOrFail($id);
-        $update = $user->update($request->except('roles'));
 
+        $update = $user->update($request->except(['roles', 'permissions']));
         if ($update) {
             $roles = $request->input('roles') ? $request->input('roles') : [];
             $user->syncRoles($roles);
+
+            $permissions = $request->input('permissions') ? $request->input('permissions') : [];
+            $user->syncPermissions($permissions);
 
             return redirect()
                     ->route('admin.users.index')

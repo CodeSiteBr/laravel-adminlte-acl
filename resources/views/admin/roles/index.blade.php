@@ -44,7 +44,7 @@
                             <td>
                                 <div class="form-row">
                                     <div class="col-auto">
-                                        <a href="{{ route('admin.roles.edit', $role->id) }}" class="btn btn-sm btn-warning pull-left" style="margin-right: 3px;">
+                                        <a href="{{ route('admin.roles.edit', $role->id) }}" class="btn btn-sm btn-warning pull-left">
                                             <i class="fa fa-pencil"></i> @lang('admin.edit')
                                         </a>
                                     </div>
