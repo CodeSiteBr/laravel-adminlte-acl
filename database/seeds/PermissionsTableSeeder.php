@@ -17,6 +17,6 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'manage users', 'guard_name' => 'web',]);
         Permission::create([ 'name' => 'manage roles', 'guard_name' => 'web']);
         Permission::create([ 'name' => 'manage permissions', 'guard_name' => 'web']);
-        Permission::create([ 'name' => 'manage telescope', 'guard_name' => 'web']);
+        Permission::create([ 'name' => 'manage debugger', 'guard_name' => 'web']);
     }
 }

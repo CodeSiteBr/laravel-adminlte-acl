@@ -5,7 +5,7 @@ use Laravel\Telescope\Http\Middleware\Authorize;
 
 return [
 
-    'path' => 'admin/telescope',
+    'path' => 'admin/debugger',
 
     /*
     |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ return [
     'middleware' => [
         'web',
         'auth',
-        'permission:manage telescope',
+        'permission:manage debugger',
         Authorize::class,
     ],
 
