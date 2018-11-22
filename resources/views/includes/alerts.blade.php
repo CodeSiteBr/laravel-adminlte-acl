@@ -44,10 +44,12 @@
 
 @push('js')
 <script>
+    setTimeout(function() {
+        $('.alert').slideUp();
+    }, 5000);
+
     $(".alert").click(function() {
         $(this).slideUp();
     });
-
-    $('.alert-success').delay(5000).slideUp();
 </script>
 @endpush
