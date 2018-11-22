@@ -30,7 +30,8 @@
 
             <li class="header">@lang('admin.management')</li>
 
-            <li><a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> <span>Home</span></a></li>
+            <li><a href="{{ route('home') }}"><i class="fa fa-home"></i> <span>Home</span></a></li>
+            <li><a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
             @can('manage users')
             <li class="treeview">
