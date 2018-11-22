@@ -35,7 +35,7 @@
 
             @can('manage users')
             <li class="treeview">
-                <a href="#">
+                <a>
                     <i class="fa fa-users"></i>
                     <span class="title">{{ ucfirst(trans('admin.users')) }}</span>
                     <span class="pull-right-container">
@@ -65,7 +65,7 @@
 
             @can('manage roles')
             <li class="treeview">
-                <a href="#">
+                <a>
                     <i class="fa fa-wrench"></i>
                     <span class="title">{{ ucfirst(trans('admin.roles')) }}</span>
                     <span class="pull-right-container">
@@ -95,7 +95,7 @@
 
             @can('manage permissions')
             <li class="treeview">
-                <a href="#">
+                <a>
                     <i class="fa fa-briefcase"></i>
                     <span class="title">{{ ucfirst(trans('admin.permissions')) }}</span>
                     <span class="pull-right-container">
@@ -135,6 +135,12 @@
 <script>
     $(function () {
         var url = window.location;
+
+        // Se o ultima letra da url for / será removido
+        if(url.href.slice(-1) == "/"){
+            url.href = url.href.slice(0,-1)+ "";
+        }
+
         // Para o menu da barra lateral inteiramente mas não cobre o treeview
         $('ul.sidebar-menu a').filter(function() {
             return this.href == url;
