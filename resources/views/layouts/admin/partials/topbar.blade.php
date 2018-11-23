@@ -2,9 +2,9 @@
     <!-- Logo -->
     <a href="{{ route('admin.home') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b></span>
+        <span class="logo-mini">{!! config('adminlte.logo_mini', '<b>C</b>S') !!}</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Admin</b></span>
+        <span class="logo-lg"><b>{!! config('adminlte.logo', '<b>Code</b>site') !!}</b></span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -238,12 +238,14 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">@lang('admin.profile')</a>
+                                <a href="#" class="btn btn-default btn-flat">
+                                    <i class="fa fa-user"></i> @lang('admin.profile')
+                                </a>
                             </div>
 
                             <div class="pull-right">
                                 <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    @lang('admin.logout')
+                                    <i class="fa fa-power-off"></i> @lang('admin.logout')
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

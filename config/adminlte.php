@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'version' => '1.0.0',
+    /*
+    |--------------------------------------------------------------------------
+    | Logo
+    |--------------------------------------------------------------------------
+    |
+    | This logo is displayed at the upper left corner of your admin panel.
+    | You can use basic HTML here if you want. The logo has also a mini
+    | variant, used for the mini side bar. Make it 3 letters or so
+    |
+    */
+    'logo' => '<b>Code</b>site',
+    'logo_mini' => '<b>C</b>S',
     /*
     |--------------------------------------------------------------------------
     | Skin Color

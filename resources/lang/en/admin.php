@@ -50,6 +50,9 @@ return [
     'profile' => 'Profile',
     'logout' => 'Logout',
 
+    'all_rights_reserved' => 'All rights reserved.',
+    'version' => 'Version',
+
     'alert' => [
         'info' => 'Information',
         'success' => 'Success',

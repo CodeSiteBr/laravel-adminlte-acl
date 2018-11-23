@@ -50,6 +50,9 @@ return [
     'profile' => 'Perfil',
     'logout' => 'Sair',
 
+    'all_rights_reserved' => 'Todos os direitos reservados.',
+    'version' => 'Versão',
+
     'alert' => [
         'info' => 'Informação',
         'success' => 'Sucesso',
