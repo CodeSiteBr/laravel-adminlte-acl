@@ -13,15 +13,15 @@
                 </div>
 
                 <div class="card-body">
-                    <h4>Usuários para teste</h4>
-
-                    <p>ADMIN</p>
-                    <p>Usuario: admin@admin.com</p>
-                    <p>Senha: 123456</p>
-
-                    <p>USER</p>
-                    <p>Usuario: user@user.com</p>
-                    <p>Senha: 123456</p>
+                    <h4><b>Usuários para teste</b></h4>
+                    <hr>
+                    <h5>ADMIN</h5>
+                    <h5><b>Usuario:</b> admin@admin.com</h5>
+                    <h5><b>Senha:</b> 123456</h5>
+                    <hr>
+                    <h5>USER</h5>
+                    <h5><b>Usuario:</b> user@user.com</h5>
+                    <h5><b>Senha:</b> 123456</h5>
                 </div>
             </div>
         </div>
