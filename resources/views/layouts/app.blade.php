@@ -108,7 +108,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js?' . time()) }}" defer></script>
+    <script src="{{ asset('js/app.js?' . time()) }}"></script>
 
     @yield('js')
     @stack('js')
