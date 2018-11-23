@@ -9,6 +9,8 @@ return [
     */
     'since_year' => '2018',
     'footer_name' => 'Codesite',
+    'produced_by' => 'Codesite',
+    'produced_url' => 'http://codesites.com.br',
     'version' => '1.0.0',
     /*
     |--------------------------------------------------------------------------

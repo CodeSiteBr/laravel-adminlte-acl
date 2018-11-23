@@ -50,7 +50,8 @@ return [
     'profile' => 'Perfil',
     'logout' => 'Sair',
 
-    'all_rights_reserved' => 'Todos os direitos reservados.',
+    'produced_by' => 'Produzido por',
+    'all_rights_reserved' => 'Todos os direitos reservados desde',
     'version' => 'Versão',
 
     'alert' => [

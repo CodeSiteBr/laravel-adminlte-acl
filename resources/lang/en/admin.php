@@ -50,7 +50,8 @@ return [
     'profile' => 'Profile',
     'logout' => 'Logout',
 
-    'all_rights_reserved' => 'All rights reserved.',
+    'produced_by' => 'Produced by',
+    'all_rights_reserved' => 'All rights reserved since',
     'version' => 'Version',
 
     'alert' => [
