@@ -9,7 +9,7 @@
 
 # Laravel
 
-Aplicação em Laravel v5.7 com modulo admin com controle de acl para iniciar um projeto com o laravel.
+Aplicação em Laravel v5.7 com modulo admin com controle de acl para iniciar um projeto com o laravel!
 
 ## Extensões implementadas
 
