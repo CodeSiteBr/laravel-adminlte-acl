@@ -216,21 +216,21 @@
                             <img src="{{ asset('admin-lte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
 
                             <p>
-                                {{ Auth::user()->name }} - Web Developer
-                                <small>Member since {{ Auth::user()->created_at->toFormattedDateString() }}</small>
+                                {{ Auth::user()->name }}
+                                <small>@lang('admin.member.since') {{ Auth::user()->created_at->toFormattedDateString() }}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
                         <li class="user-body">
                             <div class="row">
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
+                                    <a href="#">@lang('admin.followers')</a>
                                 </div>
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Sales</a>
+                                    <a href="#">@lang('admin.sales')</a>
                                 </div>
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
+                                    <a href="#">@lang('admin.friends')</a>
                                 </div>
                             </div>
                             <!-- /.row -->
@@ -238,12 +238,12 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="#" class="btn btn-default btn-flat">@lang('admin.profile')</a>
                             </div>
 
                             <div class="pull-right">
                                 <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    @lang('admin.logout')
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

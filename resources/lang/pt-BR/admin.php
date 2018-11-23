@@ -43,6 +43,12 @@ return [
     'permissions.assign.roles' => 'Atribuir permissão para funções',
 
     'debugger' => 'Depurador',
+    'member.since' => 'Membro desde',
+    'followers' => 'Seguidores',
+    'sales' => 'Vendas',
+    'friends' => 'Amigos',
+    'profile' => 'Perfil',
+    'logout' => 'Sair',
 
     'alert' => [
         'info' => 'Informação',

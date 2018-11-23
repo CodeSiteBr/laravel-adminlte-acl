@@ -43,6 +43,12 @@ return [
     'permissions.assign.roles' => 'Assign permission to roles',
 
     'debugger' => 'Debugger',
+    'member.since' => 'Member since',
+    'followers' => 'Followers',
+    'sales' => 'Sales',
+    'friends' => 'Friends',
+    'profile' => 'Profile',
+    'logout' => 'Logout',
 
     'alert' => [
         'info' => 'Information',
