@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('title', 'Home')
-
 @section('content')
 
 <div class="container">
@@ -11,7 +9,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h1><i class='fa fa-home'></i> Home</h1>
+                    <h1><i class='fa fa-wrench'></i> Em construção</h1>
                 </div>
 
                 <div class="card-body">
@@ -30,3 +28,19 @@
     </div>
 </div>
 @endsection
+
+@push('css')
+<style>
+    body {
+        background-image: url('/svg/construction.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    main .container {
+        width: 500px;
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
+</style>
+@endpush

@@ -24,6 +24,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @yield('css')
+    @stack('css')
+
+    @yield('js-head')
+    @stack('js-head')
 </head>
 
 <body>
@@ -103,6 +109,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js?' . time()) }}" defer></script>
+
+    @yield('js')
+    @stack('js')
 </body>
 
 </html>
