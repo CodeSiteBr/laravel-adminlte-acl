@@ -42,6 +42,8 @@ return [
     'permissions.assign' => 'Atribuir permissões',
     'permissions.assign.roles' => 'Atribuir permissão para funções',
 
+    'profile.edit' => 'Editar perfil',
+
     'debugger' => 'Depurador',
     'member.since' => 'Membro desde',
     'followers' => 'Seguidores',

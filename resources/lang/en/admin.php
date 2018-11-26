@@ -42,6 +42,8 @@ return [
     'permissions.assign' => 'Assign permissions',
     'permissions.assign.roles' => 'Assign permission to roles',
 
+    'profile.edit' => 'Edit profile',
+
     'debugger' => 'Debugger',
     'member.since' => 'Member since',
     'followers' => 'Followers',

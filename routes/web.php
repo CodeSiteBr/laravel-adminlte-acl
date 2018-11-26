@@ -1,6 +1,9 @@
 <?php
 
 $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('meu-perfil', 'ProfileController@edit')->name('profile.edit');
+    Route::post('atualizar-perfil', 'ProfileController@update')->name('profile.update');
+
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
     Route::resource('permissions', 'PermissionController');

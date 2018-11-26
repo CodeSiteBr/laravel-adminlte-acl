@@ -238,7 +238,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">
+                                <a href="{{ route('admin.profile.edit') }}" class="btn btn-default btn-flat">
                                     <i class="fa fa-user"></i> @lang('admin.profile')
                                 </a>
                             </div>
