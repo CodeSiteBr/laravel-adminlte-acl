@@ -31,10 +31,15 @@
 
 @push('css')
 <style>
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
     body {
         background-image: url('/svg/construction.svg');
+        background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size:auto 100%;
     }
 
     main .container {
