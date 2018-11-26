@@ -53,14 +53,12 @@ class ProfileController extends Controller
         $data['image'] = $user->image;
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             if ($user->image) {
-                $name = $user->image;
+                $nameFile = $user->image;
             } else {
-                // kebab_case = tirar espaços e caracteres especiais
-                $name = $user->id . kebab_case($user->name);
+                $extenstion = $request->image->extension();
+                $name = uniqid();
+                $nameFile = "{$name}.{$extenstion}";
             }
-
-            $extenstion = $request->image->extension();
-            $nameFile = "{$name}.{$extenstion}";
 
             $data['image'] = $nameFile;
 
