@@ -74,8 +74,11 @@ class ProfileController extends Controller
 
         $update = $user->update($data);
         if ($update) {
+            // limpar a view em cache para atualizar a foto
+            \Artisan::call('view:clear');
+
             return redirect()
-                    ->route('admin.profile.edit')
+                    ->route('profile.edit')
                     ->with('success', 'Perfil atualizado com sucesso!');
         }
 

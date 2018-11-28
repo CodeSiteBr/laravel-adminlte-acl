@@ -1,13 +1,18 @@
 <?php
 
 return [
-    'management' => 'ADMINISTRAÇÃO',
+    'home_page' => 'Página inicial',
+    'dashboard' => 'Painel',
+    'administration' => 'Administração',
 
     'name' => 'Nome',
     'email' => 'E-mail',
     'created_at' => 'Criado em',
     'password' => 'Senha',
-    'password_confirmation' => 'Confirme a senha',
+    'current_password' => 'Senha atual',
+    'new_password' => 'Nova senha',
+    'confirm_password' => 'Confirme a senha',
+    'image' => 'Imagem',
 
     'operations' => 'Operações',
     'save' => 'Salvar',

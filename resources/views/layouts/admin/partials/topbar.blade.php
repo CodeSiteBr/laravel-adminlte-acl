@@ -207,20 +207,20 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('admin-lte/dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">{{ Auth::user()->name }}</span>
-                        </a>
+                        <img class="user-image" src="{{ url('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+                        <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                    </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="{{ asset('admin-lte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                            <img class="img-circle" src="{{ url('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
 
                             <p>
                                 {{ Auth::user()->name }}
                                 <small>@lang('admin.member.since') {{ Auth::user()->created_at->toFormattedDateString() }}</small>
                             </p>
                         </li>
-                        <!-- Menu Body -->
+                        {{-- <!-- Menu Body -->
                         <li class="user-body">
                             <div class="row">
                                 <div class="col-xs-4 text-center">
@@ -233,12 +233,11 @@
                                     <a href="#">@lang('admin.friends')</a>
                                 </div>
                             </div>
-                            <!-- /.row -->
-                        </li>
+                        </li> --}}
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="{{ route('admin.profile.edit') }}" class="btn btn-default btn-flat">
+                                <a href="{{ route('profile.edit') }}" class="btn btn-default btn-flat">
                                     <i class="fa fa-user"></i> @lang('admin.profile')
                                 </a>
                             </div>

@@ -1,13 +1,18 @@
 <?php
 
 return [
-    'management' => 'MANAGEMENT',
+    'home_page' => 'Home',
+    'dashboard' => 'Dashboard',
+    'administration' => 'Administration',
 
     'name' => 'Name',
     'email' => 'Email',
     'created_at' => 'Created at',
     'password' => 'Password',
-    'password_confirmation' => 'Confirm Password',
+    'current_password' => 'Current Password',
+    'new_password' => 'Nova senha',
+    'confirm_password' => 'Confirme a senha',
+    'image' => 'Imagem',
 
     'operations' => 'Operations',
     'save' => 'Save',
