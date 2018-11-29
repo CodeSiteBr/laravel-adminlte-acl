@@ -23,6 +23,10 @@
 
             <div class="box-body">
                 <p>{{ Auth::user()->name }}</p>
+
+                <span class="flag-icon flag-icon-br fa-4x"></span>
+                <span class="flag-icon flag-icon-us"></span>
+                <span class="flag-icon flag-icon-es"></span>
             </div>
 
             <div class="box-footer">

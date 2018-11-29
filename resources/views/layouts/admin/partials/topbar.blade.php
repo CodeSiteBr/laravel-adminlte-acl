@@ -16,12 +16,12 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <!--
-                <li class="dropdown messages-menu">
+
+                {{-- <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
-                        </a>
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="label label-success">4</span>
+                    </a>
                     <ul class="dropdown-menu">
                         <li class="header">You have 4 messages</li>
                         <li>
@@ -29,7 +29,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{ asset('admin-lte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                                            <img src="{{ asset('node_modules/admin-lte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             Support Team
@@ -41,7 +41,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{ asset('admin-lte/dist/img/user3-128x128.jpg') }}" class="img-circle" alt="User Image">
+                                            <img src="{{ asset('node_modules/admin-lte/dist/img/user3-128x128.jpg') }}" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             AdminLTE Design Team
@@ -53,7 +53,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{ asset('admin-lte/dist/img/user4-128x128.jpg') }}" class="img-circle" alt="User Image">
+                                            <img src="{{ asset('node_modules/admin-lte/dist/img/user4-128x128.jpg') }}" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             Developers
@@ -65,7 +65,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{ asset('admin-lte/dist/img/user3-128x128.jpg') }}" class="img-circle" alt="User Image">
+                                            <img src="{{ asset('node_modules/admin-lte/dist/img/user3-128x128.jpg') }}" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             Sales Department
@@ -77,7 +77,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{ asset('admin-lte/dist/img/user4-128x128.jpg') }}" class="img-circle" alt="User Image">
+                                            <img src="{{ asset('node_modules/admin-lte/dist/img/user4-128x128.jpg') }}" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             Reviewers
@@ -131,13 +131,13 @@
                         </li>
                         <li class="footer"><a href="#">View all</a></li>
                     </ul>
-                </li>
+                </li> --}}
 
                 <li class="dropdown tasks-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
-                        </a>
+                        <i class="fa fa-flag-o"></i>
+                        <span class="label label-danger">9</span>
+                    </a>
                     <ul class="dropdown-menu">
                         <li class="header">You have 9 tasks</li>
                         <li>
@@ -202,7 +202,6 @@
                         </li>
                     </ul>
                 </li>
-                -->
 
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
