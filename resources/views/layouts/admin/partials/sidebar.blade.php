@@ -44,92 +44,35 @@
                 </a>
                 <ul class="treeview-menu">
                     @can('manage users')
-                    <li class="treeview">
-                        <a href="#">
+                    <li>
+                        <a href="{{ route('admin.users.index') }}">
                             <i class="fa fa-users"></i>
-                            <span class="title">{{ ucfirst(trans('admin.users')) }}</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
+                            <span class="title">
+                                @lang('admin.users')
                             </span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li>
-                                <a href="{{ route('admin.users.index') }}">
-                                    <i class="fa fa-list"></i>
-                                    <span class="title">
-                                        @lang('admin.users.list')
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.users.create') }}">
-                                    <i class="fa fa-user-plus"></i>
-                                    <span class="title">
-                                        @lang('admin.users.create')
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     @endcan
 
                     @can('manage roles')
-                    <li class="treeview">
-                        <a href="#">
+                    <li>
+                        <a href="{{ route('admin.roles.index') }}">
                             <i class="fa fa-wrench"></i>
-                            <span class="title">{{ ucfirst(trans('admin.roles')) }}</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
+                            <span class="title">
+                                @lang('admin.roles')
                             </span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li>
-                                <a href="{{ route('admin.roles.index') }}">
-                                    <i class="fa fa-list"></i>
-                                    <span class="title">
-                                        @lang('admin.roles.list')
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.roles.create') }}">
-                                    <i class="fa fa-plus"></i>
-                                    <span class="title">
-                                        @lang('admin.roles.create')
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     @endcan
 
                     @can('manage permissions')
-                    <li class="treeview">
-                        <a href="#">
+                    <li>
+                        <a href="{{ route('admin.permissions.index') }}">
                             <i class="fa fa-briefcase"></i>
-                            <span class="title">{{ ucfirst(trans('admin.permissions')) }}</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
+                            <span class="title">
+                                @lang('admin.permissions')
                             </span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li>
-                                <a href="{{ route('admin.permissions.index') }}">
-                                    <i class="fa fa-list"></i>
-                                    <span class="title">
-                                        @lang('admin.permissions.list')
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.permissions.create') }}">
-                                    <i class="fa fa-plus"></i>
-                                    <span class="title">
-                                        @lang('admin.permissions.create')
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     @endcan
 
