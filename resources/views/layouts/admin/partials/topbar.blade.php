@@ -16,15 +16,35 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="#"><i class="flag-icon flag-icon-br" style="font-size: 1.4em"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="flag-icon flag-icon-us" style="font-size: 1.4em"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="flag-icon flag-icon-es" style="font-size: 1.4em"></i></a>
-                </li>
+
+                @foreach(LaravelLocalization::getLocalesOrder() as $localeCode => $properties)
+                    @if (LaravelLocalization::getCurrentLocale() != $localeCode)
+                        <li>
+                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                <i class="{{ config('adminlte.icon_' . $localeCode) }}" style="font-size: 1.4em"></i>
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
+
+                {{-- <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-globe" style="font-size: 1.4em"></i>
+                        <span class="label label-danger">{{ count(LaravelLocalization::getSupportedLocales()) }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach(LaravelLocalization::getLocalesOrder() as $localeCode => $properties)
+                            @if (LaravelLocalization::getCurrentLocale() != $localeCode)
+                                <li>
+                                    <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        <i class="{{ config('adminlte.icon_' . $localeCode) }}" style="font-size: 1.4em"></i>
+                                        {{ $properties['native'] }}
+                                    </a>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </li> --}}
 
                 {{-- <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -142,7 +162,7 @@
                     </ul>
                 </li> --}}
 
-                <li class="dropdown tasks-menu">
+                {{-- <li class="dropdown tasks-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-flag-o"></i>
                         <span class="label label-danger">9</span>
@@ -210,7 +230,7 @@
                             <a href="#">View all tasks</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">

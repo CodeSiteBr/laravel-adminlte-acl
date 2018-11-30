@@ -29,10 +29,10 @@ if (!function_exists('parseLocale')) {
         // Seta idioma na aplicação
         App::setLocale($locale);
 
-        // Seta timezone
+        // set timezone
         Config::set('app.timezone', config('adminlte.timezone.' . $locale));
 
-        // Seta idioma no Carbon
+        // set language in Carbon
         \Carbon\Carbon::setLocale(str_replace('-', '_', $locale));
 
         return strtolower($locale);
