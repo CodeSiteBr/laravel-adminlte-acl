@@ -17,7 +17,7 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
-                @foreach(LaravelLocalization::getLocalesOrder() as $localeCode => $properties)
+                {{-- @foreach(LaravelLocalization::getLocalesOrder() as $localeCode => $properties)
                     @if (LaravelLocalization::getCurrentLocale() != $localeCode)
                         <li>
                             <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
@@ -25,12 +25,15 @@
                             </a>
                         </li>
                     @endif
-                @endforeach
+                @endforeach --}}
 
-                {{-- <li class="dropdown">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-globe" style="font-size: 1.4em"></i>
+
+                        <i class="{{ config('adminlte.icon_' . LaravelLocalization::getCurrentLocale()) }}" style="font-size: 1.4em"></i>
+
                         <span class="label label-danger">{{ count(LaravelLocalization::getSupportedLocales()) }}</span>
+                        <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach(LaravelLocalization::getLocalesOrder() as $localeCode => $properties)
@@ -44,7 +47,7 @@
                             @endif
                         @endforeach
                     </ul>
-                </li> --}}
+                </li>
 
                 {{-- <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
