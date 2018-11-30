@@ -16,6 +16,15 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+                <li>
+                    <a href="#"><i class="flag-icon flag-icon-br" style="font-size: 1.4em"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="flag-icon flag-icon-us" style="font-size: 1.4em"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="flag-icon flag-icon-es" style="font-size: 1.4em"></i></a>
+                </li>
 
                 {{-- <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
