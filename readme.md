@@ -14,6 +14,7 @@ Aplicação em Laravel v5.7 com modulo admin com controle de acl para iniciar um
 ## Extensões implementadas
 
 -   [Laravel permission 2.24](https://github.com/spatie/laravel-permission)
+-   [Laravel localization 1.3.16](https://github.com/mcamara/laravel-localization)
 -   [Laravel form builders 5.7](https://github.com/LaravelCollective/html)
 -   [Laravel telescope 1.0](https://laravel.com/docs/5.7/telescope)
 -   [AdminLTE 2.4](https://adminlte.io/)
@@ -113,18 +114,24 @@ Aplicação em Laravel v5.7 com modulo admin com controle de acl para iniciar um
 11. Se alterar os arquivos js ou sass da pasta resources/assets, é necessário, executar:
 
     ```bash
+    yarn run prod
+    # ou
     npm run prod
     ```
 
     Ou
 
     ```bash
+    yarn run dev
+    # ou
     npm run dev
     ```
 
     Ou
 
     ```bash
+    yarn run watch
+    # ou
     npm run watch
     ```
 
