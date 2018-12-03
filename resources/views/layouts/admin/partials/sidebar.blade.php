@@ -33,8 +33,7 @@
             <li><a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> <span>@lang('admin.dashboard')</span></a></li>
             <li><a href="{{ route('home') }}"><i class="fa fa-home"></i> <span>@lang('admin.home_page')</span></a></li>
 
-
-            @can('manage users|manage roles|manage permissions|manage debugger')
+            @canany(['manage users', 'manage roles', 'manage permissions', 'manage debugger'])
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-gears"></i> <span>@lang('admin.administration')</span>
@@ -81,7 +80,7 @@
                     @endcan
                 </ul>
             </li>
-            @endcan
+            @endcanany
 
         </ul>
     </section>
