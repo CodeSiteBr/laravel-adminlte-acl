@@ -238,13 +238,23 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img class="user-image" src="{{ url('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
-                        <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                        @if(file_exists( public_path(). 'storage/users/' . auth()->user()->image ))
+                            <img class="user-image" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+                            <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                        @else
+                            <img class="user-image" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">
+                            <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                        @endif
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img class="img-circle" src="{{ url('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+
+                            @if(file_exists( public_path(). 'storage/users/' . auth()->user()->image ))
+                                <img class="img-circle" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+                            @else
+                                <img class="img-circle" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">
+                            @endif
 
                             <p>
                                 {{ Auth::user()->name }}

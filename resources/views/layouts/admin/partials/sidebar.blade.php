@@ -7,7 +7,12 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img class="img-circle" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+
+                @if(file_exists( public_path(). 'storage/users/' . auth()->user()->image ))
+                    <img class="img-circle" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+                @else
+                    <img class="img-circle" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">
+                @endif
             </div>
             <div class="pull-left info" style="position: static;">
                 <p>{{ Auth::user()->name }}</p>
