@@ -238,7 +238,7 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        @if(file_exists( public_path(). 'storage/users/' . auth()->user()->image ))
+                        @if(file_exists( public_path(). '/storage/users/' . auth()->user()->image ))
                             <img class="user-image" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         @else
@@ -250,7 +250,7 @@
                         <!-- User image -->
                         <li class="user-header">
 
-                            @if(file_exists( public_path(). 'storage/users/' . auth()->user()->image ))
+                            @if(file_exists( public_path(). '/storage/users/' . auth()->user()->image ))
                                 <img class="img-circle" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
                             @else
                                 <img class="img-circle" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">

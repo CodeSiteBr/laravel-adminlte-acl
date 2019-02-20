@@ -17,10 +17,10 @@
         <div class="col-md-3">
             <div class="box box-default">
                 <div class="box-body">
-                    @if(auth()->user()->image != null)
-                        <img class="img-responsive thumbnail" src="{{ url('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+                    @if(file_exists( public_path(). '/storage/users/' . auth()->user()->image ))
+                        <img class="img-responsive thumbnail" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
                     @else
-                        <img class="img-responsive thumbnail" src="{{ url('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+                        <img class="img-responsive thumbnail" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">
                     @endif
 
                     <h3 class="profile-username text-center">{{ auth()->user()->name }}</h3>
