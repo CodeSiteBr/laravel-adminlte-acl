@@ -13,7 +13,7 @@ Aplicação em Laravel v5.7 com modulo admin com controle de acl para iniciar um
 
 ## Extensões implementadas
 
--   [Laravel permission 2.24](https://github.com/spatie/laravel-permission)
+-   [Laravel permission 2.32](https://github.com/spatie/laravel-permission)
 -   [Laravel localization 1.3.16](https://github.com/mcamara/laravel-localization)
 -   [Laravel form builders 5.7](https://github.com/LaravelCollective/html)
 -   [Laravel telescope 1.0](https://laravel.com/docs/5.7/telescope)
@@ -25,7 +25,7 @@ Aplicação em Laravel v5.7 com modulo admin com controle de acl para iniciar um
 -   [Git](https://git-scm.com/)
 -   [Composer](http://getcomposer.org/doc/00-intro.md)
 -   [Node](https://nodejs.org/en/)
--   [MySQL](https://www.mysql.com/)
+-   [MySQL](https://dev.mysql.com/downloads/installer/)
 
 ## Instalação
 
@@ -51,6 +51,10 @@ Aplicação em Laravel v5.7 com modulo admin com controle de acl para iniciar um
 4. Se node está instalado, execute:
     ```bash
     npm install
+    ```
+    OU
+    ```bash
+    yarn install
     ```
 5. Criar o arquivo .env, execute:
     ```bash
