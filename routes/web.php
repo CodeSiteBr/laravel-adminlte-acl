@@ -6,7 +6,7 @@ Route::group(
         'middleware' => [ 'localize', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ],
     function () {
-        $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+        Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::resource('users', 'UserController');
             Route::resource('roles', 'RoleController');
             Route::resource('permissions', 'PermissionController');
