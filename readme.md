@@ -9,16 +9,16 @@
 
 # Laravel
 
-Aplicação em Laravel v5.7 com modulo admin com controle de acl para iniciar um projeto com o laravel!
+Aplicação em Laravel v5.8 com modulo admin com controle de acl para iniciar um projeto com o laravel!
 
 ## Extensões implementadas
 
--   [Laravel permission 2.32](https://github.com/spatie/laravel-permission)
--   [Laravel localization 1.3.16](https://github.com/mcamara/laravel-localization)
--   [Laravel form builders 5.7](https://github.com/LaravelCollective/html)
--   [Laravel telescope 1.0](https://laravel.com/docs/5.7/telescope)
+-   [Laravel permission 2.37](https://github.com/spatie/laravel-permission)
+-   [Laravel localization 1.3.19](https://github.com/mcamara/laravel-localization)
+-   [Laravel form builders 5.8](https://github.com/LaravelCollective/html)
+-   [Laravel telescope 2.0.4](https://github.com/laravel/telescope)
 -   [AdminLTE 2.4](https://adminlte.io/)
--   [Fontawesome 5.5](https://fontawesome.com/)
+-   [Fontawesome 5.8](https://fontawesome.com/)
 
 ## Requisitos
 
