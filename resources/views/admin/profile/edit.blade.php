@@ -1,8 +1,7 @@
 @extends('layouts.admin.app')
 @section('title', trans('admin.profile.edit'))
 @section('content')
-
-@include('includes.alerts')
+    @include('includes.alerts')
 
 <section class="content-header">
     <h1><i class='fa fa-pencil'></i> @lang('admin.profile.edit')</h1>
@@ -17,15 +16,16 @@
         <div class="col-md-3">
             <div class="box box-default">
                 <div class="box-body">
-                    @if(!is_null(auth()->user()->image) && file_exists( public_path(). '/storage/users/' . auth()->user()->image ))
-                        <img class="img-responsive thumbnail" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+                    @if(!is_null(auth()->user()->getMedia('avatar')))
+                        <img class="img-responsive thumbnail" src="{{ Auth::user()->avatar->getUrl('card') }}">
                     @else
                         <img class="img-responsive thumbnail" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">
                     @endif
 
                     <h3 class="profile-username text-center">{{ auth()->user()->name }}</h3>
 
-                    {{-- <p class="text-muted text-center">Software Engineer</p>
+                    {{--
+                    <p class="text-muted text-center">Software Engineer</p>
 
                     <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
 
@@ -136,12 +136,39 @@
             </div>
         </div>
     </div>
+
+    @if(!is_null(auth()->user()->getMedia('avatar')))
+        <div class="row">
+            @foreach (auth()->user()->getMedia('avatar') as $avatar)
+                <div class="col-md-4">
+                    <div class="box box-widget">
+                        <div class="box-header with-border">
+                            &nbsp;
+                            <div class="box-tools">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <img class="img-responsive center-block pad" src="{{$avatar->getUrl('card')}}">
+                        </div>
+                        <div class="box-footer">
+                            <a class="btn btn-app">
+                                <i class="fa fa-check"></i> Aplicar
+                            </a>
+                            <a class="btn btn-app pull-right">
+                                <i class="fa fa-trash"></i> Remover
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @endif
 </section>
-
 @endsection
-
-@push('css')
-    <style>
+ @push('css')
+<style>
     .nav-tabs-custom>.nav-tabs>li.active {
         border-top-color: #d2d6de;
     }
@@ -150,5 +177,6 @@
         margin-bottom: 0px;
         border-radius: 50%;
     }
-    </style>
+</style>
+
 @endpush
