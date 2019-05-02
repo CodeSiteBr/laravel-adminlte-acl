@@ -1,5 +1,5 @@
 @if ($errors->any())
-    <div class="alert alert-danger alert-dismissible" style="margin-bottom: 0px; margin-left: 15px; margin-right: 15px;">
+    <div class="alert alert-danger alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <h4><i class="icon fa fa-ban"></i> @lang('admin.alert.error')</h4>
         <ul>
@@ -11,7 +11,7 @@
 @endif
 
 @if (session('success'))
-    <div class="alert alert-success alert-dismissible" style="margin-bottom: 0px; margin-left: 15px; margin-right: 15px;">
+    <div class="alert alert-success alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <h4><i class="icon fa fa-check"></i> @lang('admin.alert.success')</h4>
         {{ session('success') }}
@@ -19,7 +19,7 @@
 @endif
 
 @if (session('warning'))
-    <div class="alert alert-warning alert-dismissible" style="margin-bottom: 0px; margin-left: 15px; margin-right: 15px;">
+    <div class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <h4><i class="icon fa fa-warning"></i> @lang('admin.alert.warning')</h4>
         {{ session('warning') }}
@@ -27,7 +27,7 @@
 @endif
 
 @if (session('error'))
-    <div class="alert alert-danger alert-dismissible" style="margin-bottom: 0px; margin-left: 15px; margin-right: 15px;">
+    <div class="alert alert-danger alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <h4><i class="icon fa fa-ban"></i> @lang('admin.alert.error')</h4>
         {{ session('error') }}
@@ -35,7 +35,7 @@
 @endif
 
 @if (session('info'))
-    <div class="alert alert-info alert-dismissible" style="margin-bottom: 0px; margin-left: 15px; margin-right: 15px;">
+    <div class="alert alert-info alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <h4><i class="icon fa fa-info"></i> @lang('admin.alert.info')</h4>
         {{ session('info') }}

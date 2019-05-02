@@ -15,6 +15,9 @@ Route::group(
             Route::get('/home', 'HomeController@index');
         });
 
+        Route::get('profile', 'AvatarController@index')->name('profile');
+        Route::resource('avatar', 'AvatarController');
+
         Route::get('meu-perfil', 'Admin\ProfileController@edit')->name('profile.edit');
         Route::post('meu-perfil', 'Admin\ProfileController@update')->name('profile.update');
 

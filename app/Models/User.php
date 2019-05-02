@@ -2,16 +2,21 @@
 
 namespace App\Models;
 
+use Spatie\MediaLibrary\File;
 use Illuminate\Support\Facades\Hash;
+use Spatie\MediaLibrary\Models\Media;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
     use Notifiable;
     use HasRoles;
+    use HasMediaTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'image',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -40,5 +45,32 @@ class User extends Authenticatable
         if ($input) {
             $this->attributes['password'] = app('hash')->needsRehash($input) ? Hash::make($input) : $input;
         }
+    }
+
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('avatar')
+            ->acceptsFile(function (File $file) {
+                return $file->mimeType === 'image/jpeg';
+            })
+            ->registerMediaConversions(function(Media $media){
+                $this->addMediaConversion('card')
+                    ->width(400)
+                    ->height(300);
+
+                $this->addMediaConversion('thumb')
+                    ->width(100)
+                    ->height(100);
+            });
+    }
+
+    public function avatar()
+    {
+        return $this->hasOne(Media::class, 'id', 'avatar_id');
+    }
+
+    public function getAvatarUrlAttribute()
+    {
+        return $this->avatar->getUrl('thumb');
     }
 }
