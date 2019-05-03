@@ -51,32 +51,27 @@ class ProfileController extends Controller
             }
         }
 
-        $data['image'] = $user->image;
+        $data['avatar_id'] = $user->avatar_id;
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            if ($user->image) {
-                $nameFile = $user->image;
-            } else {
-                $extenstion = $request->image->extension();
-                $name = uniqid();
-                $nameFile = "{$name}.{$extenstion}";
-            }
+            $media = $user
+                ->addMedia($request->image)
+                ->withResponsiveImages()
+                ->sanitizingFileName(function($fileName) {
+                    return strtolower(str_replace(['#', '/', '\\', ' '], '-', $fileName));
+                })
+                ->toMediaCollection('avatar');
 
-            $data['image'] = $nameFile;
-
-            $upload = $request->image->storeAs('users', $nameFile);
-
-            if (!$upload) {
+            if (!$media) {
                 return redirect()
                 ->back()
                 ->with('error', 'Falha ao fazer o upload da imagem');
             }
+
+            $data['avatar_id'] = $media->id;
         }
 
         $update = $user->update($data);
         if ($update) {
-            // limpar a view em cache para atualizar a foto
-            \Artisan::call('view:clear');
-
             return redirect()
                     ->route('profile.edit')
                     ->with('success', 'Perfil atualizado com sucesso!');
@@ -85,5 +80,13 @@ class ProfileController extends Controller
         return redirect()
                 ->back()
                 ->with('error', 'Falha ao atualizar o perfil.');
+    }
+
+    public function updateAvatar(Request $request, $id)
+    {
+        $user = auth()->user();
+        $user->avatar_id = $request->selectedAvatar;
+        $user->save();
+        return redirect()->back();
     }
 }

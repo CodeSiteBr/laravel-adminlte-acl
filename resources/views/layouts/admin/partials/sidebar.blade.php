@@ -7,8 +7,8 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                @if(!is_null(auth()->user()->image) && file_exists( public_path(). '/storage/users/' . auth()->user()->image ))
-                    <img class="img-circle" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+                @if( !is_null(Auth::user()->avatar_id) && !empty(Auth::user()->avatar_id) && !is_null(Auth::user()->getMedia('avatar')->first() ) )
+                    <img class="img-circle" src="{{ Auth::user()->avatar->getUrl('thumb') }}" alt="{{ Auth::user()->name }}">
                 @else
                     <img class="img-circle" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">
                 @endif

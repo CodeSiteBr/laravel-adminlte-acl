@@ -238,22 +238,21 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        @if(!is_null(auth()->user()->image) && file_exists( public_path(). '/storage/users/' . auth()->user()->image ))
-                            <img class="user-image" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+                        @if( !is_null(Auth::user()->avatar_id) && !empty(Auth::user()->avatar_id) && !is_null(Auth::user()->getMedia('avatar')->first() ) )
+                            <img class="user-image" src="{{ Auth::user()->avatar->getUrl('thumb') }}" alt="{{ Auth::user()->name }}">
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         @else
-                            <img class="user-image" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">
+                            <img class="user-image" src="{{ asset('img/no-user.png') }}" alt="{{ Auth::user()->name }}">
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         @endif
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-
-                            @if(!is_null(auth()->user()->image) && file_exists( public_path(). '/storage/users/' . auth()->user()->image ))
-                                <img class="img-circle" src="{{ asset('storage/users/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+                            @if( !is_null(Auth::user()->avatar_id) && !empty(Auth::user()->avatar_id) && !is_null(Auth::user()->getMedia('avatar')->first() ) )
+                                <img class="img-circle" src="{{ Auth::user()->avatar->getUrl('thumb') }}" alt="{{ Auth::user()->name }}">
                             @else
-                                <img class="img-circle" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">
+                                <img class="img-circle" src="{{ asset('img/no-user.png') }}" alt="{{ Auth::user()->name }}">
                             @endif
 
                             <p>
