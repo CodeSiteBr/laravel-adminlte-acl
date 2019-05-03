@@ -14,6 +14,7 @@ Aplicação em Laravel v5.8 com modulo admin com controle de acl para iniciar um
 ## Extensões implementadas
 
 -   [Laravel permission 2.37](https://github.com/spatie/laravel-permission)
+-   [Laravel media library 7.6](https://github.com/spatie/laravel-medialibrary)
 -   [Laravel localization 1.3.19](https://github.com/mcamara/laravel-localization)
 -   [Laravel form builders 5.8](https://github.com/LaravelCollective/html)
 -   [Laravel telescope 2.0.4](https://github.com/laravel/telescope)
