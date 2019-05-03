@@ -238,7 +238,7 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        @if(!is_null(Auth::user()->getMedia('avatar')))
+                        @if( !is_null(Auth::user()->avatar_id) && !empty(Auth::user()->avatar_id) && !is_null(Auth::user()->getMedia('avatar')->first() ) )
                             <img class="user-image" src="{{ Auth::user()->avatar->getUrl('thumb') }}" alt="{{ Auth::user()->name }}">
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         @else
@@ -249,7 +249,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            @if(!is_null(Auth::user()->getMedia('avatar')))
+                            @if( !is_null(Auth::user()->avatar_id) && !empty(Auth::user()->avatar_id) && !is_null(Auth::user()->getMedia('avatar')->first() ) )
                                 <img class="img-circle" src="{{ Auth::user()->avatar->getUrl('thumb') }}" alt="{{ Auth::user()->name }}">
                             @else
                                 <img class="img-circle" src="{{ asset('img/no-user.png') }}" alt="{{ Auth::user()->name }}">

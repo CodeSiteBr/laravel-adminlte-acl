@@ -7,7 +7,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                @if(!is_null(Auth::user()->getMedia('avatar')))
+                @if( !is_null(Auth::user()->avatar_id) && !empty(Auth::user()->avatar_id) && !is_null(Auth::user()->getMedia('avatar')->first() ) )
                     <img class="img-circle" src="{{ Auth::user()->avatar->getUrl('thumb') }}" alt="{{ Auth::user()->name }}">
                 @else
                     <img class="img-circle" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">

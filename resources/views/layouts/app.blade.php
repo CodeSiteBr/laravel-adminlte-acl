@@ -75,7 +75,7 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>
 
-                                @if(!is_null(Auth::user()->getMedia('avatar')))
+                                @if( !is_null(Auth::user()->avatar_id) && !empty(Auth::user()->avatar_id) && !is_null(Auth::user()->getMedia('avatar')->first() ) )
                                     <img src="{{ Auth::user()->avatar->getUrl('thumb') }}" width="50" height="50" alt="avatar" class="rounded-circle">
                                 @else
                                     <img src="{{ asset('img/no-user.png') }}" width="50" height="50" alt="avatar" class="rounded-circle">
@@ -85,7 +85,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('profile') }}">
+                                <a class="dropdown-item" href="{{ route('profile.edit') }}">
                                     <i class="fa fa-btn fa-user"></i> @lang('admin.profile')
                                 </a>
                                 @role(1)

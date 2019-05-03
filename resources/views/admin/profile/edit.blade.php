@@ -16,7 +16,7 @@
         <div class="col-md-3">
             <div class="box box-default">
                 <div class="box-body">
-                    @if(!is_null(auth()->user()->getMedia('avatar')))
+                    @if( !is_null(Auth::user()->avatar_id) && !empty(Auth::user()->avatar_id) && !is_null(Auth::user()->getMedia('avatar')->first() ) )
                         <img class="img-responsive thumbnail" src="{{ Auth::user()->avatar->getUrl('card') }}">
                     @else
                         <img class="img-responsive thumbnail" src="{{ asset('img/no-user.png') }}" alt="{{ auth()->user()->name }}">
@@ -137,7 +137,7 @@
         </div>
     </div>
 
-    @if(!is_null(auth()->user()->getMedia('avatar')))
+    @if( !is_null(Auth::user()->getMedia('avatar')->first() ) )
         <div class="row">
             @foreach (auth()->user()->getMedia('avatar') as $avatar)
                 <div class="col-md-4">

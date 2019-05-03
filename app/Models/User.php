@@ -24,7 +24,7 @@ class User extends Authenticatable implements HasMedia
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar_id'
     ];
 
     /**
@@ -50,10 +50,11 @@ class User extends Authenticatable implements HasMedia
     public function registerMediaCollections()
     {
         $this->addMediaCollection('avatar')
+            // ->singleFile()
             ->acceptsFile(function (File $file) {
-                return $file->mimeType === 'image/jpeg';
+                return in_array($file->mimeType, ['image/jpeg', 'image/png']);
             })
-            ->registerMediaConversions(function(Media $media){
+            ->registerMediaConversions(function(Media $media = null){
                 $this->addMediaConversion('card')
                     ->width(400)
                     ->height(300);
@@ -61,6 +62,18 @@ class User extends Authenticatable implements HasMedia
                 $this->addMediaConversion('thumb')
                     ->width(100)
                     ->height(100);
+            });
+
+        $this
+            ->addMediaCollection('fotos')
+            ->acceptsFile(function (File $file) {
+                return in_array($file->mimeType, ['image/jpeg', 'image/png', 'image/gif', 'image/tiff']);
+            });
+
+        $this
+            ->addMediaCollection('videos')
+            ->acceptsFile(function (File $file) {
+                return in_array($file->mimeType, ['video/x-msvideo', 'video/mpeg']);
             });
     }
 
