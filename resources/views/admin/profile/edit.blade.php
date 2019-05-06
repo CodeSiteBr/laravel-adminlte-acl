@@ -153,12 +153,27 @@
                             <img class="img-responsive center-block pad" src="{{$avatar->getUrl('card')}}">
                         </div>
                         <div class="box-footer">
-                            <a class="btn btn-app">
+                            <a class="btn btn-app" href="#" onclick="event.preventDefault();document.getElementById('selectForm{{$avatar->id}}').submit()">
                                 <i class="fa fa-check"></i> Aplicar
                             </a>
-                            <a class="btn btn-app pull-right">
+
+                            <form action="{{route('profile.foto-update', auth()->id())}}"
+                                style="display:none" id="selectForm{{$avatar->id}}" method="POST">
+                                @csrf
+                                @method('put')
+                                <input type="hidden" type="submit" name="selectedAvatar" value="{{$avatar->id}}">
+                            </form>
+
+                            <a class="btn btn-app pull-right" href="#" onclick="event.preventDefault();document.getElementById('deleteForm{{$avatar->id}}').submit()">
                                 <i class="fa fa-trash"></i> Remover
                             </a>
+
+                            <form action="{{route('profile.foto-destroy', auth()->id())}}"
+                                style="display:none" id="deleteForm{{$avatar->id}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <input type="hidden" type="submit" name="deletedAvatar" value="{{$avatar->id}}">
+                            </form>
                         </div>
                     </div>
                 </div>

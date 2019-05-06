@@ -15,12 +15,15 @@ Route::group(
             Route::get('/home', 'HomeController@index');
         });
 
-        // Route::get('profile', 'AvatarController@index')->name('profile');
-        // Route::resource('avatar', 'AvatarController');
-
+        // perfil do usuario
         Route::get('meu-perfil', 'Admin\ProfileController@edit')->name('profile.edit');
         Route::post('meu-perfil', 'Admin\ProfileController@update')->name('profile.update');
 
+        // fotos do perfil
+        Route::put('foto-update/{id}', 'Admin\ProfileController@updateFoto')->name('profile.foto-update');
+        Route::delete('foto-destroy/{id}', 'Admin\ProfileController@destroyFoto')->name('profile.foto-destroy');
+
+        // home
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('/home', 'HomeController@index');
 

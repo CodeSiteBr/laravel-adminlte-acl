@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Spatie\MediaLibrary\Models\Media;
 use App\Http\Requests\UpdateProfileformRequest;
 
 class ProfileController extends Controller
@@ -53,6 +54,14 @@ class ProfileController extends Controller
 
         $data['avatar_id'] = $user->avatar_id;
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
+
+            $avatars = $user->getMedia('avatar');
+            if(count($avatars) >= 3){
+                return redirect()
+                ->back()
+                ->with('error', 'É permitido somente 3 fotos por usuário.');
+            }
+
             $media = $user
                 ->addMedia($request->image)
                 ->withResponsiveImages()
@@ -64,7 +73,7 @@ class ProfileController extends Controller
             if (!$media) {
                 return redirect()
                 ->back()
-                ->with('error', 'Falha ao fazer o upload da imagem');
+                ->with('error', 'Falha ao fazer o upload da foto');
             }
 
             $data['avatar_id'] = $media->id;
@@ -82,11 +91,44 @@ class ProfileController extends Controller
                 ->with('error', 'Falha ao atualizar o perfil.');
     }
 
-    public function updateAvatar(Request $request, $id)
+    public function updateFoto(Request $request)
     {
         $user = auth()->user();
         $user->avatar_id = $request->selectedAvatar;
-        $user->save();
-        return redirect()->back();
+        $update = $user->save();
+
+        if ($update) {
+            return redirect()
+                    ->back()
+                    ->with('success', 'Foto atualizada com sucesso!');
+        }
+    }
+
+
+    public function destroyFoto(Request $request)
+    {
+        $avatar_id = $request->deletedAvatar;
+
+        if ($avatar_id instanceof Media) {
+            $avatar_id = $avatar_id->id;
+        }
+        $media = Media::find($avatar_id);
+        if (! $media) {
+            throw MediaCannotBeDeleted::doesNotBelongToModel($avatar_id, $this);
+        }
+        $delete = $media->delete();
+        if ($delete) {
+            $user = auth()->user();
+            $user->avatar_id = NULL;
+            $user->save();
+
+            return redirect()
+                    ->back()
+                    ->with('success', 'Foto deletada com sucesso!');
+        }
+
+        return redirect()
+                ->back()
+                ->with('error', 'Falha ao deletar a foto.');
     }
 }
